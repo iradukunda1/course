@@ -1,0 +1,20 @@
+# https://taskfile.dev
+
+version: '3'
+
+silent: true
+
+#Array Taskfile
+includes:
+  #All tasks in this file are prefixed with `array:` eg `task array:build`
+   array: 
+      taskfile: ./array/Taskfile.yaml
+      dir: ./array
+      silent: true
+tasks:
+  tidy:
+    desc: Get developement packages
+    cmds:
+      - echo "> getting project package..."
+      - go mod tidy
+      - echo "> done"

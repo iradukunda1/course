@@ -1,0 +1,16 @@
+version: '3'
+
+# Array task
+tasks:
+    build:
+      desc: Build the array active binary
+      cmds:
+        - echo "> compiling array binary..."
+        - CGO_ENABLED=0 go build -ldflags="{{.LDFLAGS}}" -o ../bin/array main.go
+        - echo "> done"
+    run:
+      desc: Run the array activity
+      cmds:
+        - echo "> running array task..."
+        - ../bin/array
+        - echo "> done"
