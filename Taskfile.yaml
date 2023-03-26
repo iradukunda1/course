@@ -4,12 +4,19 @@ version: '3'
 
 silent: true
 
+dotenv: [".env"] # use .env instead
+
 #Array Taskfile
 includes:
   #All tasks in this file are prefixed with `array:` eg `task array:build`
    array: 
       taskfile: ./array/Taskfile.yaml
       dir: ./array
+      silent: true
+  #All tasks in this file are prefixed with `account:` eg `task account:build`
+   account:
+      taskfile: ./account/Taskfile.yaml
+      dir: ./account
       silent: true
 tasks:
   tidy:

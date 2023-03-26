@@ -1,0 +1,16 @@
+version: '3'
+
+# Bank-Account task
+tasks:
+    build:
+      desc: Build the Bank Account binary
+      cmds:
+        - echo "> compiling Bank Account binary..."
+        - CGO_ENABLED=0 go build -ldflags="{{.LDFLAGS}}" -o ../bin/account main.go
+        - echo "> done"
+    run:
+      desc: Run the Bank Account activity
+      cmds:
+        - echo "> running Bank Account task..."
+        - ../bin/account
+        - echo "> done"
